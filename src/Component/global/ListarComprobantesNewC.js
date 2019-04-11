@@ -351,8 +351,8 @@ class ListarComponentes extends Component {
                                 <th>Nro</th>
                                 <th>Nombre Apellido</th>
                                 <th>Concepto</th>
+                                <th>Descripcion</th> 
                                 <th>Codigo</th>
-                                <th>Descripcion</th>
                                 <th>Sigla Programa</th>
                                 <th>Recibo</th>
                                 <th>Moneda</th>
@@ -369,8 +369,8 @@ class ListarComponentes extends Component {
                                 <td>{i + 1}</td>
                                 <td onClick={(e) => this.eventoNombre(dynamicData.id_alum, dynamicData.nombre, dynamicData.codigo)} title="click para añadir un nuevo registro" className="detalles" nam={dynamicData.nombre}>{dynamicData.nombre}</td>
                                 <td>{dynamicData.concepto}</td>
+                                <td>{dynamicData.descripcion}</td> 
                                 <td>{dynamicData.codigo}</td>
-                                <td>{dynamicData.descripcion}</td>
                                 <td>{dynamicData.sigla_programa}</td>
                                 <td>{dynamicData.recibo}</td>
                                 <td>{dynamicData.moneda}</td>
