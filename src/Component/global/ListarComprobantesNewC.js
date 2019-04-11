@@ -45,7 +45,7 @@ class ListarComponentes extends Component {
         if (lista !== null) {
             lista.map((item, key) => {
                 arreglo = arreglo.concat(new this.Obj(item.id_rec, item.observacion, item.observacion_upg, item.id_ubicacion && item.id_ubicacion, item.id_tipo, item.validado, item.nombre,
-                    item.concepto, item.codigo, item.recibo, 
+                    item.concepto,item.descripcion,item.sigla_programa ,item.codigo, item.recibo, 
                     item.moneda, item.mascara, item.importe, item.fecha, item.id_alum));
                 return null;
             });
@@ -149,7 +149,7 @@ class ListarComponentes extends Component {
     }
 
     //crea un objeto para pasar al hijo
-    Obj(id_rec, obs, obs_upg, ubic, tipo, validado, nombre, concepto, codigo, recibo, 
+    Obj(id_rec, obs, obs_upg, ubic, tipo, validado, nombre, concepto,descripcion,sigla_programa ,codigo, recibo, 
         moneda, mascara, importe, fecha, id_alum) {
         this.id_rec = id_rec;
         this.obs = obs;
@@ -159,6 +159,8 @@ class ListarComponentes extends Component {
         this.validado = validado;
         this.nombre = nombre;
         this.concepto = concepto;
+        this.descripcion = descripcion;
+        this.sigla_programa = sigla_programa;
         this.codigo = codigo;
         this.recibo = recibo;
         this.moneda = moneda;
@@ -350,6 +352,8 @@ class ListarComponentes extends Component {
                                 <th>Nombre Apellido</th>
                                 <th>Concepto</th>
                                 <th>Codigo</th>
+                                <th>Descripcion</th>
+                                <th>Sigla Programa</th>
                                 <th>Recibo</th>
                                 <th>Moneda</th>
                                 <th>Importe</th>
@@ -366,6 +370,8 @@ class ListarComponentes extends Component {
                                 <td onClick={(e) => this.eventoNombre(dynamicData.id_alum, dynamicData.nombre, dynamicData.codigo)} title="click para añadir un nuevo registro" className="detalles" nam={dynamicData.nombre}>{dynamicData.nombre}</td>
                                 <td>{dynamicData.concepto}</td>
                                 <td>{dynamicData.codigo}</td>
+                                <td>{dynamicData.descripcion}</td>
+                                <td>{dynamicData.sigla_programa}</td>
                                 <td>{dynamicData.recibo}</td>
                                 <td>{dynamicData.moneda}</td>
                                 <td>{dynamicData.mascara} {dynamicData.importe}</td>
