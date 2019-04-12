@@ -18,6 +18,7 @@ class MyModal extends Component {
     componentWillMount() {
         let data;
         const url = URL.url.concat('conceptos');
+        this.sigla(this.props.id);
         // const url= 'https://api-modulocontrol.herokuapp.com/conceptos';
         fetch(url, {
             method: 'GET',
@@ -58,6 +59,7 @@ class MyModal extends Component {
         data.id_registro = 2103;  
         data.id_ubicacion = document.getElementById("ubicacion").value;
         data.cod_alum = document.getElementById("codigo").value;
+        data.sigla = document.getElementById("sigla").value;
         data.numero = document.getElementById("recibo").value;
         data.importe = document.getElementById("importe").value;
         data.observacion = document.getElementById("obs").value;
@@ -221,6 +223,31 @@ class MyModal extends Component {
             }
         })
     }
+    sigla(e) {
+        let id = e;
+        let data;
+        const url = "https://modulocontrol.herokuapp.com/sigla/" + id;
+        //const url = "http://localhost:7896/sigla/" + id;
+        console.log(url);
+        fetch(url, {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json"
+          }
+        })
+          .then(res => res.json())
+          .then(res => {
+            //console.log(res);
+            if (res.status) {
+              data = res;
+              var x = document.getElementById("sigla");
+              x.value = data["data"][0]["sigla_programa"];
+            } else {
+              alert("Fallo al cargar datos de sigla!");
+            }
+          });
+      }
     render() {
         let nombre = this.props.nombre;
         let codigo = this.props.codigo;
@@ -244,6 +271,17 @@ class MyModal extends Component {
                         <div className="form-group">
                             <label >Código</label>
                             <input type="number" className="form-control" placeholder="Código" id="codigo" value={codigo} disabled required />
+                        </div>
+                        <div className="form-group">
+                        <label>Sigla</label>
+                            <input
+                            type="text"
+                            className="form-control"
+                            placeholder="Sigla"
+                            id="sigla"
+                            disabled
+                            required
+                            />
                         </div>
                         <div className="form-group">
                             <label>Recibo</label>
