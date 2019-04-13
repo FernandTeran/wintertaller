@@ -269,30 +269,34 @@ class MyModal extends Component {
               <label>Concepto de Pago</label>
               <select required id="concepto" className="form-control" />
             </div>
-            <div className="form-group">
-              <label>Código</label>
-              <input
-                type="number"
-                className="form-control"
-                placeholder="Código"
-                id="codigo"
-                value={codigo}
-                disabled
-                required
-              />
-            </div>
-            <div className="form-group">
-              <label>Sigla</label>
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Sigla"
-                id="sigla"
-                value={sigla}
-                disabled
-                required
-              />
-            </div>
+                
+              <div className="form-row">
+                  <div className="form-group col-sm-6">
+                    <label>Código</label>
+                    <input
+                      type="number"
+                      className="form-control px-2"
+                      placeholder="Código"
+                      id="codigo"
+                      value={codigo}
+                      disabled
+                      required
+                    />
+                  </div>
+                  <div className="form-group col-sm-4 m-0">
+                    <label>Programa</label>
+                    <input
+                      type="text"
+                      className="form-control px-2"
+                      placeholder="Siglas"
+                      id="sigla"
+                      value={sigla}
+                      disabled
+                      required
+                    />
+                  </div>
+              </div>
+                  
             <div className="form-group">
               <label>Recibo</label>
               <input
