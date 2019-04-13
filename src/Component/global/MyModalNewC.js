@@ -59,7 +59,7 @@ class MyModal extends Component {
     data.id_concepto = document.getElementById("concepto").value;
     data.id_registro = 2103;
     data.id_ubicacion = document.getElementById("ubicacion").value;
-    data.cod_alum = document.getElementById("codigo").value;
+    data.cod_alum = this.props.codigo;
     data.id_programa = this.props.idPrograma;
     data.numero = document.getElementById("recibo").value;
     data.importe = document.getElementById("importe").value;
@@ -70,8 +70,6 @@ class MyModal extends Component {
     data.id_tipo = document.getElementById("tipo").value;
     data.moneda = document.getElementById("moneda").value;
     ModalManager.close();
-    console.log(this.props);
-    console.log(JSON.stringify(data));
     if (
       data.id_concepto !== "" ||
       data.id_ubicacion !== "" ||
@@ -83,7 +81,7 @@ class MyModal extends Component {
     ) {
       const url = URL.url.concat("recaudaciones/new");
       //const url= 'https://modulocontrol.herokuapp.com/recaudaciones/new';
-      //const url = 'http://localhost:7896/recaudaciones/new'
+      //onst url = "http://localhost:7896/recaudaciones/new";
       fetch(url, {
         method: "POST",
         headers: {
