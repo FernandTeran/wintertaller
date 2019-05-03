@@ -458,7 +458,7 @@ class ListarComponentes extends Component {
                 <th>Concepto</th>
                 <th>Descripcion</th>
                 <th>Codigo</th>
-                <th>Sigla Programa</th>
+                <th>Programa</th>
                 <th>Recibo</th>
                 <th>Moneda</th>
                 <th>Importe</th>
