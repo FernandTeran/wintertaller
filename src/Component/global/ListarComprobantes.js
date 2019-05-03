@@ -335,7 +335,7 @@ class ListarComponentes extends Component {
                             <th>Nombre Apellido</th>
                             <th>Concepto</th>
                             <th>Descripcion</th>
-                            <th>Sigla Programa</th>
+                            <th>Programa</th>
                             <th>Codigo</th>
                             <th>Recibo</th>
                             <th>Moneda</th>
