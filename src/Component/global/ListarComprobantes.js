@@ -41,9 +41,9 @@ class ListarComponentes extends Component {
         const lista = this.props.listado;
         if (lista !== null) {
             lista.map((item, key) => {
-                arreglo = arreglo.concat(new this.Obj(item.id_rec, item.observacion, item.observacion_upg, item.id_ubicacion
+                arreglo = arreglo.concat(new this.Obj(item.id_rec, item.observacion,item.observacion_upg, item.id_ubicacion
                     && item.id_ubicacion, item.validado, item.nombre,
-                    item.concepto, item.descripcion,item.sigla_programa ,item.codigo, item.recibo, item.moneda, item.mascara,
+                    item.concepto, item.descripcion,item.sigla_programa ,item.codigo,item.id_registro,item.tipo,item.recibo, item.moneda, item.mascara,
                      item.importe, item.fecha, item.dni, item.nombre_programa
                     ));
                 return null;
@@ -127,7 +127,7 @@ class ListarComponentes extends Component {
     }
 
     //crea un objeto para pasar al hijo
-    Obj(id_rec, obs, obs_upg, ubic, validado, nombre, concepto,descripcion,sigla_programa , codigo, recibo,
+    Obj(id_rec, obs, obs_upg, ubic, validado, nombre, concepto,descripcion,sigla_programa , codigo,id_registro,tipo,recibo,
         moneda, mascara, importe, fecha, dni, nombre_programa) {
         this.id_rec = id_rec;
         this.obs = obs;
@@ -139,6 +139,8 @@ class ListarComponentes extends Component {
         this.descripcion = descripcion;
         this.sigla_programa = sigla_programa;
         this.codigo = codigo;
+        this.id_registro = id_registro;
+        this.tipo = tipo;
         this.recibo = recibo;
         this.moneda = moneda;
         this.mascara = mascara;
@@ -337,6 +339,8 @@ class ListarComponentes extends Component {
                             <th>Descripcion</th>
                             <th>Programa</th>
                             <th>Codigo</th>
+                            <th>Cuenta Bancaria</th>
+                            <th>Tipo de Carga</th>
                             <th>Recibo</th>
                             <th>Moneda</th>
                             <th>Importe</th>
@@ -354,6 +358,8 @@ class ListarComponentes extends Component {
                             <td>{dynamicData.descripcion}</td>
                             <td>{dynamicData.sigla_programa}</td>
                             <td>{dynamicData.codigo}</td>
+                            <td>{dynamicData.tipo}</td>
+                            <td>{dynamicData.id_registro}</td>
                             <td>{dynamicData.recibo}</td>
                             <td>{dynamicData.moneda}</td>
                             <td>{dynamicData.mascara} {dynamicData.importe}</td>

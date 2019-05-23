@@ -61,6 +61,8 @@ class ListarComponentes extends Component {
             item.sigla_programa,
             item.id_programa,
             item.codigo,
+            item.id_registro,
+            item.tipo,
             item.recibo,
             item.moneda,
             item.mascara,
@@ -419,7 +421,7 @@ class ListarComponentes extends Component {
       />
     );
   }
-
+  
   render() {
     const listado = this.state.data;
     //console.log(this.props);
@@ -459,6 +461,8 @@ class ListarComponentes extends Component {
                 <th>Descripcion</th>
                 <th>Codigo</th>
                 <th>Programa</th>
+                <th>Cuenta Bancaria</th>
+                <th>Tipo de Carga</th>
                 <th>Recibo</th>
                 <th>Moneda</th>
                 <th>Importe</th>
@@ -493,6 +497,8 @@ class ListarComponentes extends Component {
                   <td>{dynamicData.descripcion}</td>
                   <td>{dynamicData.codigo}</td>
                   <td>{dynamicData.sigla_programa}</td>
+                  <td>{dynamicData.tipo}</td>
+                  <td>{dynamicData.id_registro}</td>
                   <td>{dynamicData.recibo}</td>
                   <td>{dynamicData.moneda}</td>
                   <td>
