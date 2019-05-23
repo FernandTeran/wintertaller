@@ -536,13 +536,10 @@ class ListarComponentes extends Component {
                       <span className="mybtn-red glyphicon glyphicon-eye-open" />
                     </button>
                     <button
-                      id={dynamicData.observacion_upg}
+                      id={dynamicData.observacion}
                       name={dynamicData.id_rec}
                       onClick={e =>
-                        this.openModalUpg(
-                          dynamicData.id_rec,
-                          dynamicData.obs_upg
-                        )
+                        this.openModal(dynamicData.id_rec, dynamicData.obs)
                       }
                       className="btn btn-primary"
                     >
