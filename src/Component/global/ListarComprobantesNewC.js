@@ -414,15 +414,18 @@ class ListarComponentes extends Component {
     let cod = c;
     let sig = d;
     let idp = b;
-    ModalManager.open(
-      <Modal2
-        id={id_alum}
-        nombre={nom}
-        codigo={cod}
-        sigla={sig}
-        idPrograma={idp}
-      />
-    );
+    if(cod!=null){
+      ModalManager.open(
+        <Modal2
+          id={id_alum}
+          nombre={nom}
+          codigo={cod}
+          sigla={sig}
+          idPrograma={idp}
+        />
+      );
+    }
+    
   }
 
   expandirTabla(e) {
@@ -474,7 +477,7 @@ class ListarComponentes extends Component {
                 <th>Nro</th>
                 <th>Nombre Apellido</th>
                 <th>Concepto</th>
-                <th>Descripcion</th>
+                <th >Descripcion</th>
                 <th>Codigo</th>
                 <th>Programa</th>
                 <th>Recibo</th>
@@ -482,10 +485,10 @@ class ListarComponentes extends Component {
                 <th>Importe</th>
                 <th>Fecha</th>
                 <th className={this.state.expand ? "" : "d-none"}>Ubicación</th>
-                <th className={this.state.expand ? "" : "d-none"}>Cuenta del Banco</th>
-                <th className={this.state.expand ? "" : "d-none"}>Tipo de Carga</th>
                 <th className={this.state.expand ? "" : "d-none"}>Verificar</th>
                 <th className={this.state.expand ? "" : "d-none"}>Observaciones</th>
+                <th className={this.state.expand ? "" : "d-none"}>Cuenta del Banco</th>
+                <th className={this.state.expand ? "" : "d-none"}>Tipo de Carga</th>
               </tr>
             </thead>
             <tbody id="table">
@@ -509,7 +512,7 @@ class ListarComponentes extends Component {
                     {dynamicData.nombre}
                   </td>
                   <td>{dynamicData.concepto}</td>
-                  <td>{dynamicData.descripcion}</td>
+                  <td className="text-left">{dynamicData.descripcion}</td>
                   <td>{dynamicData.codigo}</td>
                   <td>{dynamicData.sigla_programa}</td>
                   <td>{dynamicData.recibo}</td>
@@ -527,9 +530,7 @@ class ListarComponentes extends Component {
                     />
                   </td>
 
-                  <td className={this.state.expand ? "" : "d-none"}>{dynamicData.tipo}</td>
-                  <td className={this.state.expand ? "" : "d-none"}>{dynamicData.id_registro == 2103 ? "DIGITADO" : "REMITIDO"}</td>
-                  <td className={this.state.expand ? "" : "d-none"}>
+                <td className={this.state.expand ? "" : "d-none"}>
                     <Check
                       validado={dynamicData.validado}
                       id={dynamicData.id_rec}
@@ -562,6 +563,9 @@ class ListarComponentes extends Component {
                       <span className="mybtn-blue glyphicon glyphicon-eye-open" />
                     </button>
                   </td>
+                  <td className={this.state.expand ? "" : "d-none"}>{dynamicData.tipo}</td>
+                  <td className={this.state.expand ? "" : "d-none"}>{dynamicData.id_registro == 2103 ? "DIGITADO" : "REMITIDO"}</td>
+                  
                 </tr>
               ))}
             </tbody>
